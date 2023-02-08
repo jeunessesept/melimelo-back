@@ -2,6 +2,8 @@ import express from "express";
 import Sequelize from "sequelize";
 import bodyParser from "body-parser";
 
+
+
 const server = express();
 server.use(express.json());
 server.use(bodyParser.json())
