@@ -31,6 +31,7 @@ export const register = async (req, res) => {
       email,
       password: hashedPassword,
     });
+    console.log(newUser)
     return res.send({ info: "user succesfully added", data: newUser });
   } catch (error) {
     console.error(error);
