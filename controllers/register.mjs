@@ -24,7 +24,7 @@ export const register = async (req, res) => {
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const newUser = await User.create({
+    const newUser = await User.create({   //// why create() doesn't works ?
       first_name,
       last_name,
       username,
