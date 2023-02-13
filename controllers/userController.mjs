@@ -1,8 +1,15 @@
 import bcrypt, { hash } from "bcrypt";
-import pkg from "../server/models/user.js";
-import User_model from "../server/models/user.js";
+// import pkg from "../server/models/user.js";
+// import User_model from "../server/models/user.js";
 
-const User = User_model.User;
+// const User = User_model.User;
+// import User from "../server/models/user"(sequelize, DataTypes)
+
+import sequelize from 'sequelize';
+import DataTypes from 'sequelize';
+import UserModel from '../server/models/user.js';
+
+const User = UserModel(sequelize, DataTypes)
 
 export const register = async (req, res) => {
   const { first_name, last_name, username, email, password, confirm_password } =
@@ -24,7 +31,7 @@ export const register = async (req, res) => {
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const newUser = await User.create({   //// why create() doesn't works ?
+    const newUser = await User.create({   
       first_name,
       last_name,
       username,

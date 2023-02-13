@@ -1,5 +1,10 @@
 "use strict";
-const { Model } = require("sequelize");
+// const { Model } = require("sequelize");
+// const sequelize = require("./index").default.sequelize;
+// const DataTypes = require("postgres");
+
+const { Sequelize, DataTypes, Model } = require('sequelize');
+
 
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
@@ -12,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  
+
   User.init(
     {
       id: {
@@ -54,3 +59,4 @@ module.exports = (sequelize, DataTypes) => {
   );
   return User;
 };
+
