@@ -6,7 +6,7 @@ dotenv.config();
 
 const sequelize = new Sequelize(
   process.env.DB_DATABASE,
-  process.env.DB_USERNAME.trim(),
+  process.env.DB_USERNAME,
   process.env.DB_PASSWORD,
   {
     host: "localhost",
@@ -16,11 +16,13 @@ const sequelize = new Sequelize(
 );
 
 
+
 export const dbConnect = async () => {
-  try {
-    await sequelize.authenticate();
-    console.log("Connection has been established successfully.");
-  } catch (error) {
-    console.error("Unable to connect to the database:", error);
-  }
+  sequelize
+  .authenticate()
+  .then(() => {
+    console.log(`Database connected to discover`)
+}).catch((err) => {
+    console.log(err)
+})
 };
