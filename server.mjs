@@ -2,8 +2,8 @@ import express from "express";
 import sequelize from "sequelize";
 import bodyParser from "body-parser";
 
-import { register } from "./controllers/userController.mjs";
-
+import pkg from './controllers/userController.js';
+const { register, login, logout} = pkg;
 
 
 const server = express();
@@ -16,8 +16,10 @@ server.get("/", (req, res) => {
 });
 
 server.post("/user/register", register);
+server.get("/user/login", login)
+server.get("/user/logout", logout)
+
 
 server.listen(3001, async () => {
-    await sequelize.authenticate()
   console.log("connected");
 });
