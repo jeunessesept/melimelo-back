@@ -11,6 +11,8 @@ const sign = util.promisify(JWT.sign);
 const register = async (req, res) => {
   const { first_name, last_name, username, email, password, confirm_password } =
     req.body;
+  
+  console.log("req.body ok")
 
   if (!first_name || !last_name || !email || !password || !username)
     return res.status(400).send({ error: "invalid request" });
@@ -37,9 +39,6 @@ const register = async (req, res) => {
       created_at: new Date(),
       updated_at: new Date(),
     });
-    console.log(newUser);
-    // await user.save();
-    // console.log(`${newUser} was saved to the database!`)
     return res.send({ info: "user succesfully added", data: newUser });
   } catch (error) {
     console.error(error);
