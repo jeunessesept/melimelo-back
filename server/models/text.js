@@ -4,7 +4,6 @@ dotenv.config();
 
 const { Sequelize, DataTypes } = require("sequelize");
 
- 
 const sequelize = new Sequelize(
   process.env.DB_DATABASE,
   process.env.DB_USERNAME,
@@ -16,8 +15,8 @@ const sequelize = new Sequelize(
   }
 );
 
-const User = sequelize.define(
-  "User",
+const text = sequelize.define(
+  "texts",
   {
     id: {
       type: DataTypes.INTEGER,
@@ -25,42 +24,41 @@ const User = sequelize.define(
       allowNull: false,
       primaryKey: true,
     },
-    first_name: {
+    content: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    last_name: {
-      type: DataTypes.STRING,
+    font_size: {
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
-
-    username: {
-      type: DataTypes.STRING,
+    color: {
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false,
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references: {
+        model: "users",
+        key: "id",
+      },
     },
     createdAt: {
       type: DataTypes.DATE,
-      field: 'created_at'
-     },
-    
+      field: "created_at"
+    },
+
     updatedAt: {
       type: DataTypes.DATE,
-      field: 'updated_at'
+      field: "updated_at"
     },
   },
   {
-   tableName: "users" 
+    tableName: "texts",
   }
 );
 
 sequelize.sync();
 
-module.exports = { User };
+module.exports = { text };
