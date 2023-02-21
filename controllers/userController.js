@@ -11,8 +11,6 @@ const sign = util.promisify(JWT.sign);
 const register = async (req, res) => {
   const { first_name, last_name, username, email, password, confirm_password } =
     req.body;
-  
-  console.log("req.body ok")
 
   if (!first_name || !last_name || !email || !password || !username)
     return res.status(400).send({ error: "invalid request" });

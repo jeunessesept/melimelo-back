@@ -28,13 +28,13 @@ const text = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    font_size: {
-      type: DataTypes.INTEGER,
+    font_family: {
+      type: DataTypes.STRING,
       allowNull: false,
     },
     color: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
     },
     user_id: {
       type: DataTypes.INTEGER,

@@ -2,7 +2,7 @@ const { text } = require("../server/models/text.js")
 
 
 const postTextLoggedIn = async (req, res) => {
-    const { content, font_size, color,  } = req.body
+    const { content, font_family, color,  } = req.body
     const user_id = req.userId
 
     if(!!content ){
@@ -11,7 +11,7 @@ const postTextLoggedIn = async (req, res) => {
     try{
         const newText = await text.create({
             content,
-            font_size,
+            font_family,
             color,
             user_id,
             created_at: new Date(),
@@ -24,7 +24,7 @@ const postTextLoggedIn = async (req, res) => {
 }
 
 const postTextNoLogged = async (req, res) => { 
-    const { content } = req.body
+    const { content, font_family } = req.body
     console.log(content)
     if(!content){
         return res.status(400).send({ error: "invalid request" });
@@ -32,8 +32,7 @@ const postTextNoLogged = async (req, res) => { 
     try{
         const newTextwithoutlog = await text.create({
             content,
-            font_size : 4,
-            color : 233,
+            font_family,
             created_at: new Date(),
             updated_at: new Date(),
         })
