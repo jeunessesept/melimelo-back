@@ -2,7 +2,7 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.mjs",
   "scripts": {
     "dev": "nodemon server.mjs",
     "start":"node server.mjs",
