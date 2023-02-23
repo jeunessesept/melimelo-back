@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "run": "node server.mjs",
-    "dev": "nodemon server.mjs"
+    "dev": "nodemon server.mjs",
+    "make-model" : "npx sequelize-cli model:generate --name user --attributes first_name:string,last_name:string,email:string",   
+    "migrate" : "npx sequelize-cli db:migrate"
   },
   "keywords": [],
   "author": "",
