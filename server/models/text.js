@@ -9,8 +9,8 @@ const sequelize = new Sequelize(
   process.env.DB_USERNAME,
   process.env.DB_PASSWORD,
   {
-    host: "localhost",
-    port: process.env.DB_HOST,
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
     dialect: "postgres",
   }
 );
@@ -46,12 +46,12 @@ const text = sequelize.define(
     },
     createdAt: {
       type: DataTypes.DATE,
-      field: "created_at"
+      field: "created_at",
     },
 
     updatedAt: {
       type: DataTypes.DATE,
-      field: "updated_at"
+      field: "updated_at",
     },
   },
   {
