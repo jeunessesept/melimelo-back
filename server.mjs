@@ -23,7 +23,9 @@ server.use(bodyParser.urlencoded({ extended: true }));
 server.use(logger('common'))
 
 
-
+server.get("/", (req, res)=>  {
+  res.send("hello")
+})
 
 /// user routes
 server.post("/user/register", register);
