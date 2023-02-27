@@ -56,7 +56,7 @@ const TextGroup = sequelize.define(
   },
 },
   {
-    freezeTableName: true
+    TableName: "texts_group"
   }
 );
 
