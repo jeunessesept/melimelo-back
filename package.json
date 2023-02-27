@@ -2,10 +2,10 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.mjs",
   "scripts": {
     "dev": "nodemon server.mjs",
-    "start":"node server.mjs",
+    "start":"NODE_ENV=production node server.mjs",
     "test": "echo \"Error: no test specified\" && exit 1",
     "type": "module"
   },
