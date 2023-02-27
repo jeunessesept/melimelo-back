@@ -18,7 +18,7 @@ const sequelize = new Sequelize(
 
 
 const Groups = sequelize.define(
-  "groupes",
+  "groups",
   {
     id: {
       type: DataTypes.INTEGER,
