@@ -36,9 +36,9 @@ server.post("/homepage/post", postTextNoLogged )
 server.post("/user/post", postTextLoggedIn )
 server.get("/homepage", getTextInfos)
 
-
-server.listen(process.env.DB_PORT || 3001, async () => {
-  console.log(`connected `);
+const PORT = process.env.PORT || 3001;
+server.listen(PORT, async () => {
+  console.log(`connected to ${ PORT } `);
 });
 
 // const PORT = process.env.DB_PORT || 3001; => certains proposent d'utiliser ça
