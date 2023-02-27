@@ -22,7 +22,7 @@ server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(logger('common'))
 
-server.get("/test", (req, res)=> {
+server.get("/", (req, res)=> {
   res.send("<h1> hellooooo you </h1>")
 })
 
@@ -37,6 +37,9 @@ server.post("/user/post", postTextLoggedIn )
 server.get("/homepage", getTextInfos)
 
 
-server.listen(3001, async () => {
-  console.log("connected");
+server.listen(process.env.DB_PORT || 3001, async () => {
+  console.log(`connected `);
 });
+
+// const PORT = process.env.DB_PORT || 3001; => certains proposent d'utiliser ça
+// mais le serveur se connecte d'office sur "process.env.DB_PORT"
