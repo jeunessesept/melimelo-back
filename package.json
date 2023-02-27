@@ -3,19 +3,22 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.mjs",
+  "type": "module" ,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "run": "node server.mjs",
     "dev": "nodemon server.mjs",
-    "make-model" : "npx sequelize-cli model:generate --name user --attributes first_name:string,last_name:string,email:string",   
-    "migrate" : "npx sequelize-cli db:migrate"
+    "make-model": "npx sequelize-cli model:generate --name user --attributes first_name:string,last_name:string,email:string",
+    "migrate": "npx sequelize-cli db:migrate"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
     "nodemon": "^2.0.20",
     "pg": "^8.9.0",
     "sequelize": "^6.28.0",

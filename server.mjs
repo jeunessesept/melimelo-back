@@ -1,9 +1,16 @@
 import express from 'express'    
 import dotenv from 'dotenv' 
 dotenv.config() 
+import { register } from './controllers/userControllers.mjs';
+import bodyParser from "body-parser";
 
 const server = express()    
+
+//middleware
 server.use(express.json()) 
+server.use(bodyParser.json());
+server.use(bodyParser.urlencoded({ extended: true }));
+
 
 
 import Sequelize from 'sequelize' 
@@ -20,8 +27,12 @@ sequelize
     console.error("Impossible de se connecter à la base de données : ", err);
   });
 
-  console.log(process.env)
+  const db = {}
+    db.Sequelize = Sequelize
+    db.sequelize = sequelize
+
+
+server.post("/user/register", register);
 
   
-const DB_PORT = process.env.DB_PORT
- server.listen(DB_PORT, () => {console.log(`server connected on ${DB_PORT}`)}) 
+server.listen(3001, () => {console.log(`server connected on ${3001}`)}) 
