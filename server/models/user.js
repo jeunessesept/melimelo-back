@@ -33,7 +33,6 @@ const User = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
-
     username: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -46,15 +45,21 @@ const User = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    about: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     createdAt: {
       type: DataTypes.DATE,
       field: 'created_at'
      },
-    
     updatedAt: {
       type: DataTypes.DATE,
       field: 'updated_at'
     },
+    image: {
+      type: DataTypes.STRING,
+    }
   },
   {
    tableName: "users" 
