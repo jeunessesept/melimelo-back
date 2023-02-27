@@ -36,10 +36,9 @@ server.post("/homepage/post", postTextNoLogged )
 server.post("/user/post", postTextLoggedIn )
 server.get("/homepage", getTextInfos)
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3001;    //=> process.env.PORT => pas relié à une variable dans le .env
 server.listen(PORT, async () => {
   console.log(`connected to ${ PORT } `);
 });
 
-// const PORT = process.env.DB_PORT || 3001; => certains proposent d'utiliser ça
-// mais le serveur se connecte d'office sur "process.env.DB_PORT"
+
