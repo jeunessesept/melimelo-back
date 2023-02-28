@@ -3,4 +3,8 @@ package-lock.json
 DS_STORE
 .env
 .sequelizerc
+tmp.env
+node_modules
+package-lock.json
 tmp
+.sequelizerc
