@@ -22,9 +22,9 @@ server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(logger('common'))
 
-server.get("/", (req, res)=> {
-  res.send("<h1> hellooooo you </h1>")
-})
+// server.get("/", (req, res)=> {
+//   res.send("<h1> hellooooo you </h1>")
+// })
 
 /// user routes
 server.post("/user/register", register);
