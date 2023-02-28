@@ -3,7 +3,7 @@ const JWT = require("jsonwebtoken");
 const util = require("util");
 
 const { User } = require("../server/models/user.js");
-
+const { Text } = require("../server/models/text.js")
 const sign = util.promisify(JWT.sign);
 
 
@@ -107,10 +107,27 @@ const aboutProfile = async (req, res) => {
   }
 }
 
+const textsByUser = async (req, res) => {
+  const user_id = req.user_id;
+  try{
+    const textsbyuser = await Text.findAll({
+      attributes: ['id','content'],
+      where: {
+        user_id: user_id
+      }
+    })
+    return res.status(200).send(textsbyuser)
+  }catch(error){
+    console.error(error)
+    return res.status(500).send({error: "internal server error"})
+  }
+}
+
 //////////////////// exporting modules
 module.exports = {
   register,
   login,
   logout,
-  aboutProfile
+  aboutProfile,
+  textsByUser
 };
