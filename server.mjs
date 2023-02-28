@@ -5,7 +5,10 @@ import jwtAuthentification from "./middleware/auth.mjs"
 
 
 import pkg from './controllers/userController.js';
-const { register, login, logout} = pkg;
+const { register, 
+  login, 
+  logout,
+ aboutProfile } = pkg;
 
 import text from './controllers/textController.js';
 const {  postTextLoggedIn,
@@ -16,11 +19,12 @@ const {  postTextLoggedIn,
 const server = express();
 
 ///middleware
-server.use( express.static('public'));
+server.use(bodyParser.urlencoded({ extended: true }));
 server.use(express.json());
 server.use(bodyParser.json());
-server.use(bodyParser.urlencoded({ extended: true }));
 server.use(logger('common'))
+server.use( express.static('public'));
+
 
 // server.get("/", (req, res)=> {
 //   res.send("<h1> hellooooo you </h1>")
@@ -30,6 +34,7 @@ server.use(logger('common'))
 server.post("/user/register", register);
 server.post("/user/login", login)
 server.get("/user/logout", logout)
+server.post("/user/profile/about", aboutProfile)
 
 ///texts routes 
 server.post("/homepage/post", postTextNoLogged )

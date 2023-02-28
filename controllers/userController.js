@@ -90,9 +90,27 @@ const logout = (req, res) => {
     .json({ message: "Successfully logged out" });
 };
 
+const aboutProfile = async (req, res) => {
+  const about = req.body.about;
+
+  if(!about){
+    return res.status(400).send({ error: "invalid request" })
+  }
+  try{
+  const aboutSection = await User.create({
+    about
+  })
+  return res.send(200).send({aboutSection})
+  }catch(error){
+    console.error(error)
+    return res.status(500).send({error: "internal server error"})
+  }
+}
+
 //////////////////// exporting modules
 module.exports = {
   register,
   login,
   logout,
+  aboutProfile
 };
