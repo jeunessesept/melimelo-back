@@ -1,6 +1,8 @@
 "use strict";
 const dotenv = require("dotenv");
 dotenv.config();
+const cloudinary = require('cloudinary').v2;
+
 
 const { Sequelize, DataTypes } = require("sequelize");
 
@@ -52,19 +54,37 @@ const User = sequelize.define(
     createdAt: {
       type: DataTypes.DATE,
       field: 'created_at'
-     },
+    },
     updatedAt: {
       type: DataTypes.DATE,
       field: 'updated_at'
     },
     image: {
       type: DataTypes.STRING,
-    }
+      allowNull: true,
+      // get() {
+      //   const imagePublicId = this.getDataValue('image');
+      //   if (!imagePublicId) { return null;}
+      //   return cloudinary.url(imagePublicId);
+      // },
+    },
   },
   {
-   tableName: "users" 
+   // sequelize,
+    tableName: 'users',
+    // hooks: {
+    //   beforeSave: async (user) => {
+    //     if (user.changed('image')) {
+    //       if (user.previous('image')) {
+    //         await cloudinary.uploader.destroy(user.previous('image'));
+    //       }
+    //       const result = await cloudinary.uploader.upload(user.image);
+    //       user.image = result.public_id;
+    //     }
+    //   },
+    // },
   }
-);
+)
 
 sequelize.sync();
 

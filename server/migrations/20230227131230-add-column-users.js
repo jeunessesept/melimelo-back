@@ -8,18 +8,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: true,
       }),
-      queryInterface.addColumn('users', 'username', {
-        type: Sequelize.STRING,
-        allowNull: true,
-      }),
-      queryInterface.addColumn('users', 'password', {
-        type: Sequelize.STRING,
-        allowNull: true,
-      }),
     ]);
   },
 
   async down (queryInterface, Sequelize) {
-    return Promise.all([queryInterface.removeColumn('users', 'about')], [queryInterface.removeColumn('users', 'username')], [queryInterface.removeColumn('users', 'password')]);
+    return Promise.all([queryInterface.removeColumn('users', 'about')]);
   }
 };

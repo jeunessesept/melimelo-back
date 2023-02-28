@@ -36,6 +36,7 @@ const register = async (req, res) => {
       password: hashedPassword,
       created_at: new Date(),
       updated_at: new Date(),
+      // image
     });
     return res.send({ info: "user succesfully added", data: newUser });
   } catch (error) {
