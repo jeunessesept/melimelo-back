@@ -17,7 +17,7 @@ const sequelize = new Sequelize(
 );
 
 
-const Groups = sequelize.define(
+const Group = sequelize.define(
   "groups",
   {
     id: {
@@ -58,4 +58,4 @@ const Groups = sequelize.define(
 
 sequelize.sync();
 
-module.exports = { Groups };
+module.exports = { Group };

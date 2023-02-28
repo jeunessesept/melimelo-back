@@ -15,7 +15,7 @@ const sequelize = new Sequelize(
   }
 );
 
-const text = sequelize.define(
+const Text = sequelize.define(
   "texts",
   {
     id: {
@@ -61,4 +61,4 @@ const text = sequelize.define(
 
 sequelize.sync();
 
-module.exports = { text };
+module.exports = { Text };
