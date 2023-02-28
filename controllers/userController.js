@@ -107,14 +107,28 @@ const aboutProfile = async (req, res) => {
   }
 }
 
+const getUserInfos = async (req, res) => {
+  const user_id = req.userId;
+  try{
+    const userInfos = await User.findOne({
+      where: {
+        id: user_id
+      }
+    })
+    return res.status(200).send(userInfos)
+  }catch(error){
+    console.error(error)
+    return res.status(500).send({error: "internal server error"})
+
+  }
+}
+
 const textsByUser = async (req, res) => {
   const user_id = req.user_id;
   try{
     const textsbyuser = await Text.findAll({
       attributes: ['id','content'],
-      where: {
-        user_id: user_id
-      }
+      where: { user_id: user_id}
     })
     return res.status(200).send(textsbyuser)
   }catch(error){
@@ -129,5 +143,6 @@ module.exports = {
   login,
   logout,
   aboutProfile,
-  textsByUser
+  textsByUser,
+  getUserInfos
 };
