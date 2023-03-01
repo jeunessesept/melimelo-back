@@ -1,4 +1,4 @@
-const { text } = require("../server/models/text.js")
+const { Text } = require("../server/models/text.js")
 
 
 const postTextLoggedIn = async (req, res) => {
@@ -9,7 +9,7 @@ const postTextLoggedIn = async (req, res) => {
         return res.status(400).send({ error: "invalid request" });
     }
     try{
-        const newText = await text.create({
+        const newText = await Text.create({
             content,
             font_family,
             color,
@@ -47,7 +47,7 @@ const postTextNoLogged = async (req, res) => { 
 
 const getTextInfos = async (req, res) => {
     try{
-    const selectAll = await text.findAll();
+    const selectAll = await Text.findAll();
     return res.json({info: selectAll})
     }catch(error){
         console.error(error)
