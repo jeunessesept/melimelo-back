@@ -30,7 +30,7 @@ const postTextNoLogged = async (req, res) => { 
         return res.status(400).send({ error: "invalid request" });
     }
     try{
-        const newTextwithoutlog = await text.create({
+        const newTextwithoutlog = await Text.create({
             content,
             font_family,
             created_at: new Date(),
