@@ -20,6 +20,7 @@ const postTextLoggedIn = async (req, res) => {
         return res.send({ info: "user succesfully added", data: newText })
     }catch(error){
         console.error(error)
+        return res.status(500).send({ error: "internal server error" })
     }
 }
 
