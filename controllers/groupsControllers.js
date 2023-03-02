@@ -27,6 +27,24 @@ const createGroup = async (req, res) => {
 
 }
 
+export const getGroups = async (req, res) => {
+    const user_id = req.userId
+    try{
+        const getGroups = await Group.findAll({
+            where: {
+                user_id: user_id
+            }
+
+        })
+    return res.send(getGroups)
+    }catch(error){
+        console.error(error)
+        return res.status(500).send({error: "internal server error"})
+    }
+
+
+}
+
 
 const deleteGroup = async (req, res) => {
     const userId = req.userId
