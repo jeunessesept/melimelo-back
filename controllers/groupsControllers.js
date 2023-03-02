@@ -19,7 +19,7 @@ const createGroup = async (req, res) => {
             updated_at: new Date(),
 
         })
-    return res.send(200).send({info: "group succesfully created", data: newGroup})
+    return res.send(newGroup)
     }catch(error){
         console.error(error)
         return res.status(500).send({error: "internal server error"})

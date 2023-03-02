@@ -49,7 +49,7 @@ server.post("/user/post", postTextLoggedIn )
 server.get("/homepage", getTextInfos)
 
 ///groups routes
-server.post("/groups/creategroup", jwtAuthentification, createGroup )
+server.post("/groups/creategroup", jwtAuthentification ,createGroup)
 server.delete("/groups/delete/:id", jwtAuthentification, deleteGroup )
 
 const PORT = process.env.PORT || 3001;    //=> process.env.PORT => pas relié à une variable dans le .env
