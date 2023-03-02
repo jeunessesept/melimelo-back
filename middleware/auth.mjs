@@ -1,5 +1,4 @@
 import JWT from "jsonwebtoken";
-import cookieParser from "cookie-parser";
 import { promisify } from "util";
 
 promisify(JWT.verify);

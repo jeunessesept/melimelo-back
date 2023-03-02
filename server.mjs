@@ -2,7 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import logger from "morgan"
 import jwtAuthentification from "./middleware/auth.mjs"
-
+import cookie from "cookie-parser";
 
 import pkg from './controllers/userController.js';
 const { register, 
@@ -28,6 +28,7 @@ server.use(bodyParser.urlencoded({ extended: true }));
 server.use(express.json());
 server.use(bodyParser.json());
 server.use(logger('common'))
+server.use(cookie(process.env.SECRET_JWT))
 server.use( express.static('public'));
 
 
