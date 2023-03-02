@@ -75,4 +75,4 @@ const deleteGroup = async (req, res) => {
     }
 }
 
-module.exports = { createGroup, deleteGroup }
+module.exports = { createGroup, deleteGroup, getGroups }

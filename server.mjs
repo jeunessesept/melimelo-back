@@ -18,7 +18,7 @@ const {  postTextLoggedIn,
   getTextInfos,} = text;
 
 import groups from './controllers/groupsControllers.js'
-const { createGroup, deleteGroup } = groups
+const { createGroup, deleteGroup, getGroups } = groups;
 
 
 const server = express();
@@ -52,6 +52,7 @@ server.get("/homepage", getTextInfos)
 ///groups routes
 server.post("/groups/creategroup", jwtAuthentification ,createGroup)
 server.delete("/groups/delete/:id", jwtAuthentification, deleteGroup )
+server.get("/groups", jwtAuthentification, getGroups )
 
 const PORT = process.env.PORT || 3001;    //=> process.env.PORT => pas relié à une variable dans le .env
 server.listen(PORT, async () => {
