@@ -11,7 +11,7 @@ const cloudinaryConfig = () => {
 }
 
 const uploadImage = async (req, res) => {
-    const user_id = 2
+    const user_id = req.userId
     const file  = req.files.image
     //envoyer vers cloudinary
     const result = await cloudinary.uploader.upload(file.tempFilePath)

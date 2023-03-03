@@ -108,7 +108,7 @@ const aboutProfile = async (req, res) => {
 }
 
 const getUserInfos = async (req, res) => {
-  const user_id = req.userId;
+  const user_id = req.userID
   try{
     const userInfos = await User.findOne({
       where: {

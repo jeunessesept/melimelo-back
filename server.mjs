@@ -53,8 +53,8 @@ server.post("/user/login", login)
 server.get("/user/logout", logout)
 server.post("/user/profile/about", aboutProfile)
 server.get("/user/getpostbyuser", jwtAuthentification, textsByUser)
-server.get("/user/profile/:id",jwtAuthentification, getUserInfos)
-server.put("/user/profile/profilepicture", uploadImage )
+server.get("/user/profile", jwtAuthentification, getUserInfos)
+server.put("/user/profile/profilepicture",jwtAuthentification, uploadImage )
 
 ///texts routes 
 server.post("/homepage/post", postTextNoLogged )
